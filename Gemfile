@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'http://ruby.taobao.org/'
 
 gem 'rails', '3.1.3'
 
@@ -6,7 +6,14 @@ gem 'rails', '3.1.3'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-
+gem 'devise', '~> 1.5.3'
+gem 'carrierwave', '~> 0.5.8'
+gem 'mini_magick', '~> 3.4'
+gem 'haml-rails', '~> 0.3.4'
+gem 'kaminari', '~> 0.13.0'
+gem 'rails_kindeditor', '~> 0.2.6'
+gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+gem 'bootstrap-rails', :require => 'bootstrap-rails', :git => 'git://github.com/xdite/bootstrap-rails.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
