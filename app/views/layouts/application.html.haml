@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title rtsns
+    = stylesheet_link_tag "application"
+    = yield :css
+    = javascript_include_tag "application"
+    = yield :js
+    = csrf_meta_tag
+  %body
+    = yield
