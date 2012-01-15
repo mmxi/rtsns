@@ -5,7 +5,11 @@
         %h3= link_to "RTSNS"
         %ul.nav.secondary-nav
           - if user_signed_in?
-            %li= link_to "退出", destroy_user_session_path, :method => :delete
+            %li.dropdown
+              = link_to current_user.email, "#", :class => "dropdown-toggle"
+              %ul.dropdown-menu
+                %li= link_to "帐号设置", edit_user_registration_path
+                %li= link_to "退出", destroy_user_session_path, :method => :delete
           - else
             %li= link_to "注册", new_user_registration_path
             %li= link_to "登录", new_user_session_path
