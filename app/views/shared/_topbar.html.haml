@@ -1,0 +1,11 @@
+.topbar-wrapper
+  .topbar
+    .topbar-inner
+      .container
+        %h3= link_to "RTSNS"
+        %ul.nav.secondary-nav
+          - if user_signed_in?
+            %li= link_to "退出", destroy_user_session_path, :method => :delete
+          - else
+            %li= link_to "注册", new_user_registration_path
+            %li= link_to "登录", new_user_session_path
