@@ -10,16 +10,17 @@ body {
 	background-color: #eee;
 }
 
+.topbar-wrapper {
+	margin-bottom: 10px;
+}
+
 .topbar {
 	position: static;
 }
 
-.row {
-	background: #fff;
-}
-
 .content {
-	padding-top: 10px;
+	background: #fff;
+	padding: 10px;
 }
 
 .footer {

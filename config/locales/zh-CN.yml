@@ -216,6 +216,15 @@ zh-CN:
         <<: *errors_messages
       template:
         <<: *errors_template
+    attributes:
+      user:
+        name: 用户名
+        email: Email
+        password: 密码
+        password_confirmation: 确认密码
+        remember_me: 记住我
+        avatar: 头像
+        current_password: 当前密码
 
   helpers:
     select:
