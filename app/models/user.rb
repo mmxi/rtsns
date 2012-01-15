@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
+  def update_with_password(params={})
+    params.delete(:current_password)
+    self.update_without_password(params)
+  end
 end
