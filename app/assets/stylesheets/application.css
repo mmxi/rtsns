@@ -36,3 +36,7 @@ body {
 .hidden {
   display: none;
 }
+
+.alert-message h2 {
+  font-size: 14px;
+}
