@@ -1,19 +1,21 @@
-<h2>Change your password</h2>
+<h2>修改密码</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= f.error_notification %>
-
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :wrapper => :inline, :html => { :method => :put }) do |f| %>
+  <% unless resource.errors.empty? %>
+    <%= render :partial => "shared/error_message", :locals => { :message => devise_error_messages! }%>
+  <% end %>
   <%= f.input :reset_password_token, :as => :hidden %>
-  <%= f.full_error :reset_password_token %>
 
   <div class="inputs">
-    <%= f.input :password, :label => "New password", :required => true %>
-    <%= f.input :password_confirmation, :label => "Confirm your new password", :required => true %>
+    <%= f.input :password, :label => "新密码", :required => true %>
+    <%= f.input :password_confirmation, :label => "确认新密码", :required => true %>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Change my password" %>
+    <%= f.submit "更新密码", :class => "btn success" %>
   </div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<% content_for :sidebar do %>
+  <%= render :partial => "devise/shared/links" %>
+<% end %>
