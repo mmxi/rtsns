@@ -4,7 +4,15 @@
   <% unless resource.errors.empty? %>
     <%= render :partial => "shared/error_message", :locals => { :message => devise_error_messages! }%>
   <% end %>
+  <%= f.input :name %>
   <%= f.input :email, :required => true %>
+  <%= f.input :avatar, :label => false do %>
+    <%= image_tag current_user.avatar_url(:s120) %>
+    <%= image_tag current_user.avatar_url(:s48) %>
+    <%= image_tag current_user.avatar_url(:s32) %>
+  <% end %>
+  <%= f.input :avatar %>
+  
   <div class="actions">
     <%= f.submit "更新个人资料", :class => "btn success" %>
   </div>
