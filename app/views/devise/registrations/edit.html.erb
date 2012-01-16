@@ -2,15 +2,21 @@
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :wrapper => :inline, :html => { :method => :put }) do |f| %>
   <% unless resource.errors.empty? %>
-    <div class="alert-message block-message error">
-      <a class="close" href="#">×</a>
-      <%= devise_error_messages! %>
-    </div>
+    <%= render :partial => "shared/error_message", :locals => { :message => devise_error_messages! }%>
   <% end %>
-  <%= f.input :email, :required => true, :autofocus => true %>
-
+  <%= f.input :email, :required => true %>
   <div class="actions">
     <%= f.submit "更新个人资料", :class => "btn success" %>
+  </div>
+  
+  <fieldset>
+    <legend><h4>修改密码 <small>(不修改留空)</small></h4></legend>
+    <%= f.input :current_password %>
+    <%= f.input :password, :label => "新密码", :required => true %>
+    <%= f.input :password_confirmation, :label => "确认新密码", :required => true %>
+  </fieldset>
+  <div class="actions">
+    <%= f.submit "修改密码", :class => "btn primary" %>
   </div>
 <% end %>
 

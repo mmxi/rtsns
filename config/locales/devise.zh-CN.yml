@@ -10,8 +10,8 @@ zh-CN:
       already_confirmed: "已经确认，请重新登录."
       not_locked: "未锁定"
       not_saved:
-        one: "因为1个错误导致保存失败:"
-        other: "因为%{count}个错误导致保存失败:"
+        one: "因为1个错误导致提交失败:"
+        other: "因为%{count}个错误导致提交失败:"
   devise:
     failure:
       already_authenticated: '您已经登录.'
