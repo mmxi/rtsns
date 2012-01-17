@@ -2,3 +2,8 @@
   .alert-message.info
     %a.close{:href => "#"} ×
     %p= flash[:notice]
+
+- if not flash[:error].blank?
+  .alert-message.info
+    %a.close{:href => "#"} ×
+    %p= flash[:error]
