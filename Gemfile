@@ -12,11 +12,12 @@ gem 'mini_magick', '~> 3.4'
 gem 'haml-rails', '~> 0.3.4'
 gem 'kaminari', '~> 0.13.0'
 gem 'omniauth', '~> 1.0.1'
+gem 'uuidtools', '~> 2.1.2'
 gem 'rails_kindeditor', '~> 0.2.6'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'bootstrap-rails', :require => 'bootstrap-rails', :git => 'git://github.com/xdite/bootstrap-rails.git'
 gem 'omniauth-qzone', :git => "git://github.com/tomorrownull/omniauth-qzone.git"
-gem 'omniauth-weibo', :git => "git://github.com/jihao/omniauth-weibo.git"
+gem 'omniauth-weibo', :git => "git://github.com/ballantyne/omniauth-weibo.git"
 
 # Gems used only for assets and not required
 # in production environments by default.
