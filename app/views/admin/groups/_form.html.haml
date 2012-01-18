@@ -1,4 +1,5 @@
 = simple_form_for [:admin, @group], :wrapper => :inline, :html => {:multipart => true} do |f|
+  = rtsns_error_messages(@group)
   = f.input :title, :input_html => {:class => "span7"}
   = f.input :introduction, :as => :text, :input_html => {:rows => 8, :class => "span7"}
   = f.input :verified do

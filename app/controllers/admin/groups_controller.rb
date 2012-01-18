@@ -8,17 +8,6 @@ class Admin::GroupsController < Admin::ApplicationController
     end
   end
 
-  # GET /admin/groups/1
-  # GET /admin/groups/1.json
-  def show
-    @admin_group = Admin::Group.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @admin_group }
-    end
-  end
-
   def new
     @group = Group.new
 
@@ -28,9 +17,8 @@ class Admin::GroupsController < Admin::ApplicationController
     end
   end
 
-  # GET /admin/groups/1/edit
   def edit
-    @admin_group = Admin::Group.find(params[:id])
+    @group = Group.find(params[:id])
   end
 
   def create
@@ -40,7 +28,7 @@ class Admin::GroupsController < Admin::ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to admin_groups_path, notice: 'Group was successfully created.' }
+        format.html { redirect_to admin_groups_url, notice: 'Group was successfully created.' }
         format.json { render json: @group, status: :created, location: @admin_group }
       else
         format.html { render action: "new" }
@@ -49,27 +37,24 @@ class Admin::GroupsController < Admin::ApplicationController
     end
   end
 
-  # PUT /admin/groups/1
-  # PUT /admin/groups/1.json
   def update
-    @admin_group = Admin::Group.find(params[:id])
+    @group = Group.find(params[:id])
+    @group.accessible = :all if current_user.admin?
 
     respond_to do |format|
-      if @admin_group.update_attributes(params[:admin_group])
-        format.html { redirect_to @admin_group, notice: 'Group was successfully updated.' }
+      if @group.update_attributes(params[:group])
+        format.html { redirect_to admin_groups_url, notice: 'Group was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @admin_group.errors, status: :unprocessable_entity }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /admin/groups/1
-  # DELETE /admin/groups/1.json
   def destroy
-    @admin_group = Admin::Group.find(params[:id])
-    @admin_group.destroy
+    @group = Group.find(params[:id])
+    @group.destroy
 
     respond_to do |format|
       format.html { redirect_to admin_groups_url }
