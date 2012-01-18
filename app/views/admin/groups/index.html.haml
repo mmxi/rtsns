@@ -2,6 +2,9 @@
   小组列表
   = link_to "添加小组", new_admin_group_path, :class => "btn success pull-right"
 
+= simple_form_for @search, :url => admin_groups_path, :method => 'get', :id => "admin_group_search_form" do |f|
+  = f.input :title_contains, :label => false, :input_html => { :class => "span7" }
+  
 %table
   %thead
     %tr

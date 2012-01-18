@@ -1,6 +1,7 @@
 class Admin::GroupsController < Admin::ApplicationController
   def index
-    @groups = Group.page(params[:page]).per(8).order('created_at DESC')
+    @search = Group.search(params[:search])
+    @groups = @search.page(params[:page]).per(8).order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.haml
