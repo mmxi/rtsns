@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117110342) do
+ActiveRecord::Schema.define(:version => 20120118034404) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -21,6 +21,28 @@ ActiveRecord::Schema.define(:version => 20120117110342) do
     t.string   "secret"
     t.string   "name"
     t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "title"
+    t.string   "introduction"
+    t.boolean  "verified",      :default => false
+    t.boolean  "allowadduser",  :default => true
+    t.string   "picture"
+    t.integer  "members_count", :default => 0
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups", ["members_count"], :name => "index_groups_on_members_count"
+  add_index "groups", ["user_id"], :name => "index_groups_on_user_id"
+
+  create_table "member_groupships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

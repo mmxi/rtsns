@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar
   has_many :authorizations, :dependent => :destroy
+  has_many :groups
+  has_many :member_groupships
+  has_many :member_of, :through => :member_groupships, :class_name => 'Group', :source => :group
   mount_uploader :avatar, AvatarUploader
   
   def update_with_password(params={})
