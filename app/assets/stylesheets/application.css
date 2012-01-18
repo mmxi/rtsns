@@ -42,3 +42,14 @@ body {
 .alert-message h2 {
   font-size: 14px;
 }
+
+.collection_container {
+  padding-top: 5px;
+}
+.collection_container span {
+  margin-right: 10px;
+}
+.simple_form label.collection_radio, .simple_form label.collection_check_box {
+  float: none;
+  display: inline;
+}

@@ -225,6 +225,13 @@ zh-CN:
         remember_me: 记住我
         avatar: 头像
         current_password: 当前密码
+      group:
+        title: 小组名称
+        verified: 审核
+        picture: 小组图标
+        allowadduser: 是否允许加入小组
+        introduction: 小组介绍
+        tags: 标签分类
 
   helpers:
     select:

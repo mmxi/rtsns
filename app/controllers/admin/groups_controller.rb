@@ -19,14 +19,12 @@ class Admin::GroupsController < Admin::ApplicationController
     end
   end
 
-  # GET /admin/groups/new
-  # GET /admin/groups/new.json
   def new
-    @admin_group = Admin::Group.new
+    @group = Group.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @admin_group }
+      format.html # new.html.haml
+      format.json { render json: @group }
     end
   end
 
@@ -35,18 +33,18 @@ class Admin::GroupsController < Admin::ApplicationController
     @admin_group = Admin::Group.find(params[:id])
   end
 
-  # POST /admin/groups
-  # POST /admin/groups.json
   def create
-    @admin_group = Admin::Group.new(params[:admin_group])
+    @group = current_user.groups.new(params[:group])
+    @group.verified = params[:group][:verified]
+    @group.allowadduser = params[:group][:allowadduser]
 
     respond_to do |format|
-      if @admin_group.save
-        format.html { redirect_to @admin_group, notice: 'Group was successfully created.' }
-        format.json { render json: @admin_group, status: :created, location: @admin_group }
+      if @group.save
+        format.html { redirect_to admin_groups_path, notice: 'Group was successfully created.' }
+        format.json { render json: @group, status: :created, location: @admin_group }
       else
         format.html { render action: "new" }
-        format.json { render json: @admin_group.errors, status: :unprocessable_entity }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
   end
