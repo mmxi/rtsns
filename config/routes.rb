@@ -1,6 +1,12 @@
 Rtsns::Application.routes.draw do
 
+  get "dashboard/index"
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+  namespace :admin do
+    root :to => "dashboard#index"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
