@@ -6,6 +6,7 @@ Rtsns::Application.routes.draw do
   
   namespace :admin do
     root :to => "dashboard#index"
+    resources :groups
   end
 
   # The priority is based upon order of creation:
