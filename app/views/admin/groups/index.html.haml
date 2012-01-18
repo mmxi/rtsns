@@ -1,17 +1,35 @@
-%h1 Listing admin_groups
+%h2
+  小组列表
+  = link_to "添加小组", new_admin_group_path, :class => "btn success pull-right"
+
+= render "shared/flash_message"
 
 %table
-  %tr
-    %th
-    %th
-    %th
-
-  - @admin_groups.each do |admin_group|
+  %thead
     %tr
-      %td= link_to 'Show', admin_group
-      %td= link_to 'Edit', edit_admin_group_path(admin_group)
-      %td= link_to 'Destroy', admin_group, :confirm => 'Are you sure?', :method => :delete
+      %th 名称
+      %th 审核状态
+      %th 允许加入
+      %th 成员数量
+      %th 操作
+  %tbody
+    - @groups.each do |group|
+      %tr
+        %td
+          = group.title
+        %td
+          - if group.verified
+            %span.label.success 通过
+          - else
+            %span.label 审核中
+        %td
+          - if group.allowadduser
+            %span.label.success yes
+          - else
+            %span.label no
+        %td= group.members_count
+        %td
+          = link_to "编辑", edit_admin_group_path(group), :class => "btn"
+          = link_to "删除", admin_group_path(group), :class => "btn", :method => :delete, :confirm => "你确定?"
 
-%br
-
-= link_to 'New Group', new_admin_group_path
+= paginate @groups

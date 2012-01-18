@@ -1,12 +1,10 @@
 class Admin::GroupsController < Admin::ApplicationController
-  # GET /admin/groups
-  # GET /admin/groups.json
   def index
-    @admin_groups = Group.all
+    @groups = Group.page(params[:page]).per(5).order('created_at DESC')
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @admin_groups }
+      format.html # index.html.haml
+      format.json { render json: @groups }
     end
   end
 
