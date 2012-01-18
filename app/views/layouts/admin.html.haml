@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title rtsns
+    = stylesheet_link_tag "application"
+    = yield :css
+    = javascript_include_tag "application"
+    = yield :js
+    = csrf_meta_tag
+  %body
+    = render "shared/topbar"
+    .container-fluid
+      .sidebar
+        .well
+          = render "shared/admin_sidebar"
+      .content
+        = yield
+    = render "shared/footer"
