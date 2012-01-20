@@ -2,6 +2,9 @@
   = rtsns_error_messages(@group)
   = f.input :title, :input_html => {:class => "span7"}
   = f.input :introduction, :as => :text, :input_html => {:rows => 8, :class => "span7"}
+  = f.input :picture, :label => false do
+    = image_tag @group.picture_url(:s48)
+  = f.input :picture, :hint => "最好48x48尺寸"
   = f.input :verified do
     .collection_container= f.collection_radio :verified, [[true, '通过'] ,[false, '不通过']], :first, :last
   = f.input :allowadduser do

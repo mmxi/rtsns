@@ -17,6 +17,7 @@
     - @groups.each do |group|
       %tr
         %td
+          = image_tag group.picture_url(:s16)
           = group.title
         %td
           - if group.verified

@@ -3,6 +3,8 @@ class Group < ActiveRecord::Base
   has_many :member_groupships, :dependent => :destroy
   has_many :members, :through => :member_groupships, :class_name => 'User', :source => :user
   
+  mount_uploader :picture, GroupUploader
+  
   validates_presence_of :title
   validates_uniqueness_of :title
   validates_presence_of :introduction
