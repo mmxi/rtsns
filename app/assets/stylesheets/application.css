@@ -91,3 +91,10 @@ body {
 .ui-dialog-content {
   padding: 15px;
 }
+
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: "";
+  zoom: 1;
+  clear: both;
+}

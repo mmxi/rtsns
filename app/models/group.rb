@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :creator, :class_name => 'User', :foreign_key => :user_id
   has_many :member_groupships, :dependent => :destroy
   has_many :members, :through => :member_groupships, :class_name => 'User', :source => :user
   

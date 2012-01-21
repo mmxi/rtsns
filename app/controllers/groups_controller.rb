@@ -10,13 +10,12 @@ class GroupsController < ApplicationController
     end
   end
 
-  # GET /groups/1
-  # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
+    @newest_users = @group.members.limit(8)
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.json { render json: @group }
     end
   end
