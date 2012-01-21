@@ -21,4 +21,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_member_of?(group)
+    self.member_of.include?(group)
+  end
+
+  def become_member_of(group)
+    if group.allowadduser and group.verified and !self.is_member_of?(group)
+      group.members << self
+      group.save!
+    end
+  end
+  
 end

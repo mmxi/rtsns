@@ -6,7 +6,7 @@
     - elsif !group.allowadduser
       %span.label 禁止加入
     - else
-      = link_to "+加入", "#", :class => "label success"
+      = link_to "+加入", join_group_path(group), :class => "label success", :remote => true
   .group-desc
     %p
       = link_to group.title, group

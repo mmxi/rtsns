@@ -58,3 +58,36 @@ body {
 {
   clear: both;
 }
+
+.ui-dialog {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  @include border-radius(6px);
+  @include box-shadow(0 3px 7px rgba(0, 0, 0, 0.3));
+  @include background-clip(padding-box);
+}
+
+.ui-dialog-titlebar {
+  border-bottom: 1px solid #eee;
+  padding: 5px 15px;
+}
+
+.ui-dialog-titlebar-close {
+  float: right;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 13.5px;
+  text-shadow: 0 1px 0 #ffffff;
+  @include opacity(0.25);
+}
+
+.ui-dialog-titlebar-close:hover {
+  color: #000000;
+  text-decoration: none;
+  @include opacity(0.4);
+}
+
+.ui-dialog-content {
+  padding: 15px;
+}

@@ -14,3 +14,8 @@
 //= require bootstrap-scrollspy
 //= require bootstrap-tabs
 //= require_tree .
+
+function dialog_message(message) {
+  $('body').append('<div id="notice-message">' + message + '</div>');
+  $("#notice-message").dialog({ closeText: '×', title: '消息', minHeight: '20'});
+}

@@ -80,4 +80,16 @@ class GroupsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def join
+    @group = Group.find(params[:id])
+    respond_to do |format|
+      format.html do
+        current_user.become_member_of(@group)
+        redirect_to @group
+      end
+      format.js
+    end
+  end
+  
 end

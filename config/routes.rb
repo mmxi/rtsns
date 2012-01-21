@@ -1,7 +1,11 @@
 Rtsns::Application.routes.draw do
 
   get "dashboard/index"
-  resources :groups
+  resources :groups do
+    member do
+      get :join
+    end
+  end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
