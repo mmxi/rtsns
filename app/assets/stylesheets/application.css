@@ -62,9 +62,9 @@ body {
 .ui-dialog {
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  @include border-radius(6px);
-  @include box-shadow(0 3px 7px rgba(0, 0, 0, 0.3));
-  @include background-clip(padding-box);
+  border-radius: 6px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  background-clip: padding-box;
 }
 
 .ui-dialog-titlebar {
@@ -79,13 +79,13 @@ body {
   font-weight: bold;
   line-height: 13.5px;
   text-shadow: 0 1px 0 #ffffff;
-  @include opacity(0.25);
+  opacity: 0.25;
 }
 
 .ui-dialog-titlebar-close:hover {
   color: #000000;
   text-decoration: none;
-  @include opacity(0.4);
+  opacity: 0.4;
 }
 
 .ui-dialog-content {

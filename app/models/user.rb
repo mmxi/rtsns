@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_creator_of?(group)
+    self.groups.include?(group)
+  end
+  
   def is_member_of?(group)
     self.member_of.include?(group)
   end
