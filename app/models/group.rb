@@ -14,7 +14,7 @@ class Group < ActiveRecord::Base
   before_save :update_members
   
   def update_members
-    self.members_count = self.members.size
+    self.members_count = self.members.count
   end
 
   private

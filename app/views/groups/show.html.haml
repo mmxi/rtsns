@@ -14,7 +14,7 @@
         - if current_user.is_member_of?(@group) and @group.allowadduser
           %h6
             我是这个小组的成员
-            = link_to "退出小组", "#"
+            = link_to "退出小组", leave_group_path(@group)
         - elsif @group.creator == current_user
           %h6 你是这个小组的管理员
         - elsif !@group.allowadduser

@@ -91,4 +91,10 @@ class GroupsController < ApplicationController
     end
   end
   
+  def leave
+    @group = Group.find(params[:id])
+    current_user.leave(@group)
+    redirect_to @group
+  end
+  
 end

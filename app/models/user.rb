@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
       self.update_without_password(params)
     end
   end
-
+        
   def is_creator_of?(group)
     self.groups.include?(group)
   end
@@ -30,8 +30,15 @@ class User < ActiveRecord::Base
   end
 
   def become_member_of(group)
-    if group.allowadduser and group.verified and !self.is_member_of?(group)
+    if group.allowadduser and group.verified and !self.is_member_of?(group) and !self.is_creator_of?(group)
       group.members << self
+      group.save!
+    end
+  end
+
+  def leave(group)
+    if self.is_member_of?(group) and !self.is_creator_of?(group)
+      self.member_of.delete(group) if self.is_member_of?(group)
       group.save!
     end
   end
