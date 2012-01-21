@@ -53,3 +53,8 @@ body {
   float: none;
   display: inline;
 }
+
+.pagination
+{
+  clear: both;
+}

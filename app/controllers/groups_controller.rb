@@ -1,11 +1,11 @@
 class GroupsController < ApplicationController
-  # GET /groups
-  # GET /groups.json
+
   def index
-    @groups = Group.all
+    @groups = Group.page(params[:page]).per(20).order("members_count DESC")
+    @newest_groups = Group.limit(10).order("created_at DESC")
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.json { render json: @groups }
     end
   end
